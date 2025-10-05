@@ -1,4 +1,4 @@
-# Spring Ollama Amount Extractor (PoC)
+# Spring Ollama Amount Extractor
 
 Ngrok working backend link : https://73c66840cc9e.ngrok-free.app
 
