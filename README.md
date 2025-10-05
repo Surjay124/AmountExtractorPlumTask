@@ -35,7 +35,13 @@ Install Ollama on your machine:
 - **Windows:** Download from [Ollama website](https://ollama.com/)  
 - **Linux:** Follow official instructions
 
-Start the Ollama server:
+After downloading, open terminal and write
+```bash
+ollama run mistral
+```
+It will take time to download 4 GB of data
+
+Then, start the Ollama server:
 ```bash
 ollama serve
 ```
@@ -74,5 +80,10 @@ Design notes:
 - Ollama is used via its HTTP API `/api/generate` with prompt engineering to return JSON. The code extracts the first JSON object returned by the model and parses it.
 - Robustness: The system includes multiple fallback paths. If Ollama fails, a simple heuristic fallback maps normalized amounts to likely types.
 - Guardrails: endpoints return `{"status":"no_amounts_found","reason":"..."}` when no reliable amounts are discovered.
+
+Current Issues and Future Improvements
+•	Since, we have used a free AI model of Spring AI, which is Ollama, it is currently facing difficulties to extract information, despite the project running smoothly.
+•	Can be used in future, wherein we won’t require bills made up of paper and we can integrate this functionality in the medical apps used by respective hospitals. 
+
 
 
