@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-MedicalAmountExtractorApplication<MedicalAmountExtractor>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.MedicalAmountExtractor.MedicalAmountExtractorApplication",
+            "projectName": "MedicalAmountExtractor",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
