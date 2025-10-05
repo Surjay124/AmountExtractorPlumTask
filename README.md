@@ -1,5 +1,14 @@
 # Spring Ollama Amount Extractor (PoC)
 
+Ngrok workign backend link : https://73c66840cc9e.ngrok-free.app
+
+Tesseract OCR Architeture used:
+Tesseract has a modular OCR architecture:
+
+Preprocessing → 2. Layout Analysis → 3. Recognition (LSTM) → 4. Postprocessing → 5. Output
+
+It’s not purely a single deep learning model but a hybrid pipeline with LSTM at the core for modern Tesseract.
+
 ### Start OCR microservice (python)
 ```bash
 cd python-ocr
@@ -10,6 +19,7 @@ python ocr_service.py
 # service listens on http://localhost:5000/ocr
 ```
 
+## python-ocr/ocr_service.py (sample OCR microservice)
 
 ### Run Spring Boot app
 ```bash
@@ -26,10 +36,11 @@ Send text:
 curl -X POST "http://localhost:8080/api/amount/extract/text" -H "Content-Type: application/json" -d '"Total: INR 1200 | Paid: 1000 | Due: 200 | Discount: 10%"'
 ```
 
-## python-ocr/ocr_service.py (sample OCR microservice)
 
 Design notes:
 - OCR microservice is kept separate for best library support (pytesseract).
 - Ollama is used via its HTTP API `/api/generate` with prompt engineering to return JSON. The code extracts the first JSON object returned by the model and parses it.
 - Robustness: The system includes multiple fallback paths. If Ollama fails, a simple heuristic fallback maps normalized amounts to likely types.
 - Guardrails: endpoints return `{"status":"no_amounts_found","reason":"..."}` when no reliable amounts are discovered.
+
+
