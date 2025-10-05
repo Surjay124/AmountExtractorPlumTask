@@ -82,8 +82,8 @@ Design notes:
 - Guardrails: endpoints return `{"status":"no_amounts_found","reason":"..."}` when no reliable amounts are discovered.
 
 Current Issues and Future Improvements
-•	Since, we have used a free AI model of Spring AI, which is Ollama, it is currently facing difficulties to extract information, despite the project running smoothly.
-•	Can be used in future, wherein we won’t require bills made up of paper and we can integrate this functionality in the medical apps used by respective hospitals. 
+-	Since, we have used a free AI model of Spring AI, which is Ollama, it is currently facing difficulties to extract information, despite the project running smoothly.
+-	Can be used in future, wherein we won’t require bills made up of paper and we can integrate this functionality in the medical apps used by respective hospitals. 
 
 
 
