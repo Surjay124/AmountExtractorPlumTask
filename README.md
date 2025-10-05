@@ -1,6 +1,8 @@
 # Spring Ollama Amount Extractor (PoC)
 
-Ngrok workign backend link : https://73c66840cc9e.ngrok-free.app
+Ngrok working backend link : https://73c66840cc9e.ngrok-free.app
+
+**Architecture used for OCR**
 
 Tesseract OCR Architeture used:
 Tesseract has a modular OCR architecture:
@@ -21,6 +23,26 @@ python ocr_service.py
 
 ## python-ocr/ocr_service.py (sample OCR microservice)
 
+This project uses **Ollama** to enhance medical document processing by providing AI-powered text understanding and structured data extraction.
+
+---
+
+## Setup Ollama
+
+Install Ollama on your machine:
+
+- **macOS:** `brew install ollama`  
+- **Windows:** Download from [Ollama website](https://ollama.com/)  
+- **Linux:** Follow official instructions
+
+Start the Ollama server:
+```bash
+ollama serve
+```
+
+The server will run at http://localhost:11434.
+
+
 ### Run Spring Boot app
 ```bash
 mvn spring-boot:run
@@ -34,6 +56,16 @@ curl -X POST "http://localhost:8080/api/amount/extract/file" -F "file=@sample_bi
 Send text:
 ```bash
 curl -X POST "http://localhost:8080/api/amount/extract/text" -H "Content-Type: application/json" -d '"Total: INR 1200 | Paid: 1000 | Due: 200 | Discount: 10%"'
+```
+
+If you want to do it on working link:
+Upload image:
+```bash
+curl -X POST "https://73c66840cc9e.ngrok-free.app/api/amount/extract/file" -F "file=@sample_bill.jpg"
+```
+Send text:
+```bash
+curl -X POST "https://73c66840cc9e.ngrok-free.app/api/amount/extract/text" -H "Content-Type: application/json" -d '"Total: INR 1200 | Paid: 1000 | Due: 200 | Discount: 10%"
 ```
 
 
